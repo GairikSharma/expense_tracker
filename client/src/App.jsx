@@ -12,7 +12,7 @@ function App() {
 
   const getAllExpenses = async () => {
     try {
-      const data = await fetch(`http://localhost:7000/all-expenses`);
+      const data = await fetch(`https://expense-tracker-lake-zeta.vercel.app/all-expenses`);
       const res = await data.json();
       if (res) {
         setAllExpenses(res.allEntity);

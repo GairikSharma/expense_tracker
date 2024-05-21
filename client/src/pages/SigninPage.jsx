@@ -26,12 +26,15 @@ function SigninPage() {
       console.log(existinguser);
 
       setIsloggedin(true);
-      navigateAfterLogin();
+
       console.log("loaded man");
     } catch (error) {
       console.log(error.message);
     }
   };
+  if (login) {
+    navigateAfterLogin();
+  }
 
   return (
     <div>

@@ -1,6 +1,5 @@
 import React, {useContext} from "react";
 import { Link } from "react-router-dom";
-import auth from "../firebaseConfig";
 import { GlobalContext } from "../contextProvider";
 import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
@@ -13,7 +12,7 @@ function Tab() {
   };
   const navigate = useNavigate();
   const routeHandler = () => {
-    navigate("/sign-in");
+    navigate("/");
   };
   return (
     <div className="w-full h-[44px] bg-green-300 px-3 py-2 flex gap-6 justify-center items-center text-md text-blue-800">

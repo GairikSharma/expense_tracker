@@ -13,7 +13,7 @@ function AddExpense() {
   const [user, setUser] = useState("");
   const [pending, setPending] = useState(false);
 
-  const url = "http://localhost:7000/add-expenses";
+  const url = "https://expense-tracker-lake-zeta.vercel.app/add-expenses";
 
   const addExpense = async (event) => {
     event.preventDefault();

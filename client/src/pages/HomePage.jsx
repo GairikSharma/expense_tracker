@@ -1,12 +1,11 @@
 import React, { useContext } from "react";
 import auth from "../firebaseConfig";
-import { Link } from "react-router-dom";
 import Tab from "../components/Tab";
 import { GlobalContext } from "../contextProvider";
 
 function HomePage() {
   const { allExpenses } = useContext(GlobalContext);
-
+  console.log(auth.currentUser);
   return (
     <>
       <Tab />
@@ -19,11 +18,10 @@ function HomePage() {
               <div>{i.date}</div>
               <div>{i.description}</div>
               <div>{i.paymentMethod}</div>
-              <div>{i.pending}</div>
+              <div>{i.pending ? <span>Pending</span> : <span>Done</span> }</div>
             </>
           );
         })}
-        <h1>{auth.currentUser.displayName}</h1>
       </div>
     </>
   );
