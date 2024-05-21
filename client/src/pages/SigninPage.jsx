@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import auth from "../firebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { GlobalContext } from "../contextProvider";
@@ -23,25 +23,23 @@ function SigninPage() {
         email,
         password
       );
+
       console.log(existinguser);
 
       setIsloggedin(true);
-
-      console.log("loaded man");
+      navigateAfterLogin();
     } catch (error) {
       console.log(error.message);
     }
   };
-  if (login) {
-    navigateAfterLogin();
-  }
 
   return (
-    <div>
-      <div className="form-container">
-        <form className="form-content" onSubmit={login}>
-          <h2>Login</h2>
+    <>
+      <div className="w-full min-h-[100vh] flex justify-center items-center">
+        <form className="w-[80%] md:w-[60%] lg:w-[45%] p-5 flex gap-2 flex-col px-5 items-start border-2 border-gray-300 rounded-lg shadow-lg" onSubmit={login}>
+          <h2 className="text-2xl">Login Here</h2>
           <input
+            className="w-[100%] h-[34px] border border-gray-400 rounded-lg px-3 py-2 bg-white"
             type="email"
             placeholder="Enter your Email"
             onChange={(e) => {
@@ -49,17 +47,18 @@ function SigninPage() {
             }}
           />
           <input
+            className="w-[100%] h-[34px] border border-gray-400 rounded-lg px-3 py-2 bg-white"
             type="password"
             placeholder="Enter your password"
             onChange={(e) => {
               setPassword(e.target.value);
             }}
           />
-          <button className="btn">Login</button>
-          <Link to="/sign-up">Do not have any account ? Create here</Link>
+          <button className="w-[80px] h-[34px] rounded-lg bg-blue-500 text-white">Login</button>
+          <Link to="/sign-up">Do not have any account ? <span className="text-blue-500">Create here</span></Link>
         </form>
       </div>
-    </div>
+    </>
   );
 }
 

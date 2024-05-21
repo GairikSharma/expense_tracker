@@ -33,11 +33,11 @@ function SignupPage() {
   };
 
   return (
-    <div>
-      <div className="sign-up-form">
-        <form className="signup-content" onSubmit={register}>
-          <h2>Sign up</h2>
+    <div className="w-full min-h-[100vh] flex justify-center items-center">
+        <form className="w-[80%] md:w-[60%] lg:w-[45%] p-5 flex gap-2 flex-col px-5 items-start border-2 border-gray-300 rounded-lg shadow-lg" onSubmit={register}>
+          <h2 className="text-2xl">Sign up</h2>
           <input
+            className="w-[100%] h-[34px] border border-gray-200 rounded-lg px-3 py-2 bg-transparent"
             type="text"
             placeholder="Firstname"
             value={fname}
@@ -45,6 +45,7 @@ function SignupPage() {
             required
           />
           <input
+            className="w-[100%] h-[34px] border border-gray-200 rounded-lg px-3 py-2 bg-transparent"
             type="text"
             placeholder="Lastname"
             value={lname}
@@ -52,6 +53,7 @@ function SignupPage() {
             required
           />
           <input
+            className="w-[100%] h-[34px] border border-gray-200 rounded-lg px-3 py-2 bg-transparent"
             type="email"
             placeholder="Email"
             value={email}
@@ -59,18 +61,24 @@ function SignupPage() {
             required
           />
           <input
+            className="w-[100%] h-[34px] border border-gray-200 rounded-lg px-3 py-2 bg-transparent"
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <button className="sign-up-btn" type="submit">
+          <button
+            className="w-[80px] h-[34px] rounded-lg bg-blue-500 text-white"
+            type="submit"
+          >
             Sign Up
           </button>
-          <Link to="/">Already have an account ? Sign in</Link>
+          <Link to="/">
+            Already have an account ?{" "}
+            <span className="text-blue-500">Sign in</span>
+          </Link>
         </form>
-      </div>
     </div>
   );
 }

@@ -14,7 +14,7 @@ function RouterProvider() {
       <Routes>
         <Route path="/" element={<SigninPage />}></Route>
         <Route path="/sign-up" element={<SignupPage />}></Route>
-        <Route path="/user" element={<HomePage />} />
+        <Route path={loggedin ? "/user" : "/"} element={loggedin ? <HomePage /> : <SigninPage />} />
         <Route path="/user/add-expense" element={<AddExpense />}></Route>
       </Routes>
     </div>
