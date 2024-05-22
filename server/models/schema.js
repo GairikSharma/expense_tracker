@@ -32,10 +32,7 @@ const expenseSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  pending: {
-    type: Boolean,
-    required: true,
-  },
+  pending: Boolean
 });
 
 const Expense = mongoose.model("Expense", expenseSchema);
