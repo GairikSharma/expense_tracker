@@ -40,6 +40,7 @@ function SignupPage() {
     <div className="w-full min-h-[100vh] flex justify-center items-center">
         <form className="w-[80%] md:w-[60%] lg:w-[45%] p-5 flex gap-2 flex-col px-5 items-start border-2 border-gray-300 rounded-lg shadow-lg" onSubmit={register}>
           <h2 className="text-2xl">Sign up</h2>
+          <label htmlFor="" className="text-sm font-semibold">First name</label>
           <input
             className="w-[100%] h-[34px] border border-gray-200 rounded-lg px-3 py-2 bg-transparent"
             type="text"
@@ -48,6 +49,8 @@ function SignupPage() {
             onChange={(e) => setFname(e.target.value)}
             required
           />
+          <label htmlFor="" className="text-sm font-semibold">Last name</label>
+
           <input
             className="w-[100%] h-[34px] border border-gray-200 rounded-lg px-3 py-2 bg-transparent"
             type="text"
@@ -56,6 +59,8 @@ function SignupPage() {
             onChange={(e) => setLname(e.target.value)}
             required
           />
+          <label htmlFor="" className="text-sm font-semibold">Email</label>
+
           <input
             className="w-[100%] h-[34px] border border-gray-200 rounded-lg px-3 py-2 bg-transparent"
             type="email"
@@ -64,6 +69,10 @@ function SignupPage() {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
+          <span className="text-red-400 text-xs">Note - Enter valid email</span>
+
+          <label htmlFor="" className="text-sm font-semibold">Password</label>
+
           <input
             className="w-[100%] h-[34px] border border-gray-200 rounded-lg px-3 py-2 bg-transparent"
             type="password"
@@ -72,6 +81,7 @@ function SignupPage() {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+          <span className="text-red-400 text-xs">Note - Enter 6 digit password</span>
           <button
             className="w-[80px] h-[34px] rounded-lg bg-blue-500 text-white"
             type="submit"

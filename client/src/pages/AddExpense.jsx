@@ -45,7 +45,7 @@ function AddExpense() {
       });
       console.log("Expense added successfully:", response.data);
       setSuccessfullyExecuted(true);
-      alert("Added Successfully, Go to home page to see expenses")
+      alert("Added Successfully, Go to home page to see expenses");
     } catch (error) {
       if (error.response) {
         console.error("Server responded with an error:", error.response.data);
@@ -55,12 +55,12 @@ function AddExpense() {
         console.error("Error in setting up the request:", error.message);
       }
     } finally {
-      setOrganization("")
-      setAmount(null)
-      setCategory("")
-      setDescription("")
-      setPaymentMethod("")
-      setUser("")
+      setOrganization("");
+      setAmount(null);
+      setCategory("");
+      setDescription("");
+      setPaymentMethod("");
+      setUser("");
     }
   };
 
@@ -73,75 +73,108 @@ function AddExpense() {
           className="w-[95%] md:w-[65%] lg:w-[45%] p-5 rounded-lg flex flex-col gap-2 shadow-lg border-2 border-gray-200"
         >
           <div className="w-full h-auto flex gap-2 justify-center items-center">
-            <input
-              className="w-[80%] h-[34px] rounded px-2 border-2 border-solid border-gray-200"
-              type="text"
-              name="organization"
-              id="organization"
-              placeholder="Enter Organization name..."
-              value={organization}
-              onChange={(e) => setOrganization(e.target.value)}
-              required
-            />
-            <input
-              className="w-[20%] h-[34px] rounded px-2 border-2 border-solid border-gray-200"
-              type="number"
-              name="amount"
-              id="amount"
-              placeholder="Amount"
-              onChange={(e) => setAmount(Number(e.target.value))}
-              required
-            />
+            <div className="w-full flex gap-1 flex-col">
+              <label htmlFor="" className="text-sm font-semibold">
+                Organization
+              </label>
+
+              <input
+                className="w-full h-[34px] rounded px-2 border-2 border-solid border-gray-200"
+                type="text"
+                name="organization"
+                id="organization"
+                placeholder="Enter Organization name..."
+                value={organization}
+                onChange={(e) => setOrganization(e.target.value)}
+                required
+              />
+            </div>
+
+            <div className="w-full flex gap-1 flex-col">
+              <label htmlFor="" className="text-sm font-semibold">
+                Amount
+              </label>
+              <input
+                className="w-full h-[34px] rounded px-2 border-2 border-solid border-gray-200"
+                type="number"
+                name="amount"
+                id="amount"
+                placeholder="Amount"
+                onChange={(e) => setAmount(Number(e.target.value))}
+                required
+              />
+            </div>
+          </div>
+
+          <div className="w-full h-auto flex gap-2 justify-between items-center">
+            <div className="w-[50%] flex gap-1 flex-col">
+              <label htmlFor="" className="text-sm font-semibold">
+                Date
+              </label>
+              <input
+                className="w-full h-[34px] rounded px-2 border-2 border-solid border-gray-200"
+                type="date"
+                name="date"
+                id="date"
+                placeholder="Date"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+                required
+              />
+            </div>
+
+            <div className="w-[50%] flex gap-1 flex-col">
+              <label htmlFor="" className="text-sm font-semibold">
+                Category
+              </label>
+              <input
+                className="w-full h-[34px] rounded px-2 border-2 border-solid border-gray-200"
+                type="text"
+                name="category"
+                id="category"
+                placeholder="Category"
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                required
+              />
+            </div>
           </div>
 
           <div className="w-full h-auto flex gap-2 justify-center items-center">
-            <input
-              className="w-[50%] h-[34px] rounded px-2 border-2 border-solid border-gray-200"
-              type="date"
-              name="date"
-              id="date"
-              placeholder="Date"
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
-              required
-            />
-            <input
-              className="w-[50%] h-[34px] rounded px-2 border-2 border-solid border-gray-200"
-              type="text"
-              name="category"
-              id="category"
-              placeholder="Category"
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
-              required
-            />
+            <div className="flex gap-1 flex-col">
+              <label htmlFor="" className="text-sm font-semibold">
+                Add note
+              </label>
+              <textarea
+                className="w-full rounded px-2 border-2 border-solid border-gray-200"
+                name="description"
+                id="description"
+                cols={100}
+                rows={5}
+                placeholder="Add note"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                required
+              ></textarea>
+            </div>
           </div>
 
           <div className="w-full h-auto flex gap-2 justify-center items-center">
-            <textarea
-              className="w-full rounded px-2 border-2 border-solid border-gray-200"
-              name="description"
-              id="description"
-              cols={100}
-              rows={5}
-              placeholder="Description"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              required
-            ></textarea>
-          </div>
-
-          <div className="w-full h-auto flex gap-2 justify-center items-center">
-            <input
-              className="w-[100%] h-[34px] rounded px-2 border-2 border-solid border-gray-200"
-              type="text"
-              name="paymentMethod"
-              id="paymentMethod"
-              placeholder="Mode"
-              value={paymentMethod}
-              onChange={(e) => setPaymentMethod(e.target.value)}
-              required
-            />
+            <div className="w-full flex gap-1 flex-col">
+              <label htmlFor="" className="text-sm font-semibold">
+                Payment Mode
+              </label>
+              <input
+                className="w-[100%] h-[34px] rounded px-2 border-2 border-solid border-gray-200"
+                type="text"
+                name="paymentMethod"
+                id="paymentMethod"
+                placeholder="Mode"
+                value={paymentMethod}
+                onChange={(e) => setPaymentMethod(e.target.value)}
+                required
+              />
+            </div>
           </div>
 
           <div className="w-full h-[44px] flex gap-2 justify-start items-center">

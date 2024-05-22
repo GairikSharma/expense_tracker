@@ -38,6 +38,8 @@ function SigninPage() {
       <div className="w-full min-h-[100vh] flex justify-center items-center">
         <form className="w-[80%] md:w-[60%] lg:w-[45%] p-5 flex gap-2 flex-col px-5 items-start border-2 border-gray-300 rounded-lg shadow-lg" onSubmit={login}>
           <h2 className="text-2xl">Login Here</h2>
+          <label htmlFor="" className="text-sm font-semibold">Email</label>
+
           <input
             className="w-[100%] h-[34px] border border-gray-400 rounded-lg px-3 py-2 bg-white"
             type="email"
@@ -46,6 +48,9 @@ function SigninPage() {
               setEmail(e.target.value);
             }}
           />
+
+          <label htmlFor="" className="text-sm font-semibold">Password</label>
+
           <input
             className="w-[100%] h-[34px] border border-gray-400 rounded-lg px-3 py-2 bg-white"
             type="password"
