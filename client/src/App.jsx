@@ -3,35 +3,50 @@ import "./App.css";
 import { GlobalContext } from "./contextProvider";
 import { BrowserRouter } from "react-router-dom";
 import RouterProvider from "./RouterProvider";
-import AddExpense from "./pages/AddExpense";
+import auth from "./firebaseConfig";
 
 function App() {
   const [login, setLogin] = useState(false);
   const [loggedin, setIsloggedin] = useState(false);
   const [allExpenses, setAllExpenses] = useState([]);
 
+  const [loader, setLoader] = useState(false);
+
+  const [successfullyExecuted, setSuccessfullyExecuted] = useState(false);
+
   const getAllExpenses = async () => {
     try {
-      const data = await fetch(`https://expense-tracker-lake-zeta.vercel.app/all-expenses`);
+      setLoader(true);
+      const data = await fetch(
+        `https://expense-tracker-lake-zeta.vercel.app/all-expenses`
+      );
       const res = await data.json();
       if (res) {
         setAllExpenses(res.allEntity);
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoader(false);
     }
   };
   useEffect(() => {
     getAllExpenses();
-  }, []);
-
-  console.log(allExpenses);
+  }, [allExpenses]);
 
   return (
     <>
-      {/* <AddExpense /> */}
       <GlobalContext.Provider
-        value={{ login, setLogin, loggedin, setIsloggedin, allExpenses }}
+        value={{
+          login,
+          setLogin,
+          loggedin,
+          setIsloggedin,
+          allExpenses,
+          setLoader,
+          successfullyExecuted,
+          setSuccessfullyExecuted,
+        }}
       >
         <BrowserRouter>
           <RouterProvider />

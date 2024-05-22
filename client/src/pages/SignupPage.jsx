@@ -3,7 +3,7 @@ import React, { useContext, useState } from "react";
 import auth from "../firebaseConfig";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { GlobalContext } from "../contextProvider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function SignupPage() {
   const { login, setLogin } = useContext(GlobalContext);
@@ -11,6 +11,8 @@ function SignupPage() {
   const [lname, setLname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigateAfterRegistration = useNavigate()
 
   const register = async (e) => {
     e.preventDefault();
@@ -29,6 +31,8 @@ function SignupPage() {
       setLogin(true);
     } catch (error) {
       console.log(error.message);
+    } finally {
+      navigateAfterRegistration("/")
     }
   };
 
