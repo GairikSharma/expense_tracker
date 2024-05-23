@@ -32,7 +32,7 @@ function HomePage() {
                 <th className="px-4 text-start">Mode</th>
                 <th className="px-4 text-start">Pending status</th>
                 <th className="px-4 text-start">Amount</th>
-                {/* <th className="px-4 text-start">Note</th> */}
+                <th className="px-4 text-start">Note</th>
               </tr>
             </thead>
             <tbody>
@@ -56,7 +56,7 @@ function HomePage() {
                         {expense.pending ? <span className="p-2 text-yellow-500 rounded-lg">Pending</span> : <span className="p-2 text-green-500 rounded-lg">Done</span> }
                       </td>
                       <td className="py-2 px-4 text-left">{expense.amount}</td>
-                      {/* <td className="py-2 px-4 text-left">{expense.description}</td> */}
+                      <td className="py-2 px-4 text-left">{expense.description}</td>
                     </tr>
                   )
               )}
